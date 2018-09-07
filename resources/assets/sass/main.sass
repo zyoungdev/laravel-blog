@@ -1,0 +1,342 @@
+@import "sassBoilerplate/sass/main.scss"
+@font-face
+  font-family: 'Libre Baskerville'
+  font-style: normal
+  font-weight: 400
+  src: local('Libre Baskerville'), local('LibreBaskerville-Regular'), url('/res/fonts/Libre-Baskerville.woff2') format('woff2')
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215
+
+.undo-reset
+  div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td
+    margin-left: 5px
+    margin-right: 5px
+    padding: 10px
+
+%font-libre-baskerville
+  font-family: "Libre Baskerville", "Times New Roman", Times, serif
+
+%center-content
+  +e(a-90-fb, t-75-fb, d-70-fb, xl-65-fb)
+  +e(a-fb-jc, a-fb-ac)
+
+$black-font-color: #444;
+
+%legible
+  font-size: 1.0em
+  color: $black-font-color
+  text-align: justify
+
+%styled-anchor
+  color: #777
+  text-decoration: none
+%block-anchor
+  color: $black-font-color
+  border-top: solid 3px #333
+  border-bottom: solid 3px #333
+%anchor-hover
+  +e(a-p-10)
+  +e(styled-anchor)
+  &:hover
+    +e(block-anchor)
+%plain-anchor
+  text-decoration: none
+  color: $black-font-color
+  &:hover
+    color: #f32935
+%article-anchor
+  text-decoration: none
+  border-top: solid 1px rgba(0,0,0,0)
+  border-bottom: solid 1px rgba(0,0,0,0)
+  font-weight: 600
+  color: #000
+  font-size: 1.1em
+  &:hover
+    border-top: solid 1px #000
+    border-bottom: solid 1px #000
+
+.home-page
+  +tablet
+    height: 100%
+  body
+    +tablet
+      height: 100%
+
+body
+  font-size: .9em
+  line-height: 1.7em
+  margin: 0
+  padding: 0
+  min-width 320px
+  +e(a-100-fb)
+  +e(a-fb-jc, a-fb-ac)
+  +e(a-fb-c)
+  +e(font-libre-baskerville)
+  background-color: rgba(200,200,200,.5)
+  +mobile-landscape
+    font-size: .9em
+  +tablet
+    font-size: 1.0em
+  +desktop
+    font-size: 1.1em
+  +xl
+    font-size: 1.2em
+
+code
+  line-height: 1.5em
+
+.content
+  +e(a-100-fb)
+.splash
+  +e(a-100-fb)
+  +e(a-fb-c, a-fb-jc)
+  +e(bgz-cv)
+  background-position: center center
+  min-height: 40vh
+
+.article-tags
+  +e(center-content)
+  +e(a-fb-jc)
+  text-align: center
+  margin-top: 5px
+  margin-bottom: 5px
+  +mobile-landscape
+    height: 8vh
+  +tablet
+    height: 6vh
+.article-tags-list
+  +e(a-100-fb)
+  +e(a-fb-jsa)
+  line-height: 5vh
+  +mobile-landscape
+    line-height: 8vh
+  +tablet
+    line-height: 6vh
+  .active
+    +e(block-anchor)
+  a
+    +e(anchor-hover)
+
+.splash-shade
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 0
+  background-color: rgba(0,0,0, .4)
+.article-title
+  +e(a-100-fb)
+  +e(a-fb-jc)
+  +e(a-fb-ac)
+  width: auto
+  color: white
+  text-align: center
+  font-size: 2.1em
+  line-height: 1.1em
+  height: 35vh
+  +mobile-landscape
+    height: 45vh
+  +tablet
+    font-size: 3em
+  +desktop
+    font-size: 3.5em
+.article-dates
+  +e(a-100-fb)
+  +e(a-fb-jc)
+.article-date
+  +e(a-90-fb, t-80-fb, d-65-fb, xl-55-fb)
+
+  color: white
+  height: 1.3em
+  font-size: .9em
+  margin-bottom: 5px
+  +tablet
+    margin-bottom: 10px
+
+.article-body
+  +e(a-80-fb, t-75-fb, d-65-fb, xl-50-fb)
+  +e(legible)
+  +e(a-fb-c)
+  +e(font-libre-baskerville)
+  color: $black-font-color
+  a
+    +e(article-anchor)
+  *
+    max-width: 100%
+.article-list
+  +e(a-fb-ac)
+  +e(center-content)
+
+  ul
+    +e(a-100-fb)
+    +e(t-fb-ac)
+    padding-left: 0px
+.article-list-ul
+  +e(a-fb-c)
+.article-list-item
+  +e(a-95-fb, t-90-fb, d-85-fb, xl-80-fb)
+  +e(a-fb-jc, a-fb-ac)
+  +e(a-fb-c, t-fb-r)
+  margin-bottom: 5vh
+.article-list-thumbnail-anchor
+  +e(a-100-fb, t-20-fb, d-30-fb)
+  height: 50vw
+  width: 50vw
+  +mobile-landscape
+    height: 15vw
+    width: 15vw
+.article-list-thumbnail
+  width: 100%
+  height: 100%
+  border-radius: 50%
+  &:hover
+    box-shadow: 0 0 10px black;
+  +e(bgz-cv)
+  background-position: center center
+
+.article-list-details
+  +e(a-100-fb, t-80-fb, d-70-fb)
+  +tablet
+    padding-left: 20px
+.article-list-title
+  +e(a-100-fb)
+  +e(a-fb-c)
+  font-size: 2em
+  text-align: center
+  margin-bottom: 10px
+  a
+    +e(styled-anchor)
+    color: $black-font-color
+    font-weight: 600
+.plain-tags-list
+  +e(a-100-fb)
+  +e(a-fb-r)
+  +e(a-fb-jc)
+  margin-bottom: 10px
+  li
+    margin-left: 5px
+    margin-right: 5px
+  a
+    +e(anchor-hover)
+.article-excerpt
+  +e(legible)
+  +desktop
+    padding-left: 50px
+    padding-right: 50px
+
+.pagination
+  +e(a-95-fb, t-25-fb)
+  margin-bottom: 20px
+.pager
+  +e(a-100-fb)
+  +e(a-fb-jsb)
+  .disabled
+    visibility: hidden
+  li
+    font-size: 5em
+    color: #333
+  a
+    +e(styled-anchor)
+    +e(plain-anchor)
+
+
+///////////////
+// Home Page //
+///////////////
+.home-content
+  +e(a-100-fb, d-70-fb)
+  +e(a-fb-c, ml-fb-r)
+  +e(a-fb-ac, ml-fb-astr)
+  +e(a-fb-jc, ml-fb-jsa)
+
+%home-card
+  +e(a-90-fb, ml-75-fb)
+  +e(a-fb-c)
+  +e(a-fb-ac)
+  +e(a-fb-jsa)
+  +e(a-p-30, ml-p-0)
+  box-shadow: 0 0 30px rgba(0,0,0,.1), 0 0 3px rgba(0,0,0,.5)
+  border-radius: 2px
+  margin-top: 20px
+  margin-bottom: 20px
+  background-color: rgba(245,245,245,1)
+
+.content-card
+  +e(home-card)
+  +e(ml-fb-jfs)
+  +e(ml-fb-as)
+  +e(plain-anchor)
+
+.card-img
+  +e(t-50-fb)
+  +e(bgz-cv, bgr-n)
+  width: 45vw
+  height: 45vw
+  border-radius: 50%
+  overflow: hidden
+  box-shadow: 0 0 20px rgba(0,0,0,.2), 0 0 3px rgba(0,0,0,.5)
+  background-position: center
+  +mobile-landscape
+    box-shadow: 0 0 0px rgba(0,0,0,0)
+    width: 20vw
+    height: 100%
+    border-radius: 0%
+  img
+    max-width: 100%
+
+.card-text
+  +e(a-90-fb, ml-50-fb)
+  +e(a-fb-jc)
+  +e(a-p-20)
+  padding-left: 5px
+  padding-right: 5px
+  display: inline-block;
+  text-align: center
+  font-size: 2em
+
+.image-attr-link
+  +e(a-100-fb)
+  +e(a-fb-jfe)
+  a
+    +e(a-p-10)
+    text-decoration: none
+    color: $black-font-color
+    +tablet
+      font-size: .8em
+
+///////////////////////
+// Image Attribution //
+///////////////////////
+.attr-title
+  +e(a-100-fb)
+  +e(a-fb-jc)
+  font-size: 3em
+.attr-list
+  +e(a-100-fb)
+  +e(a-fb-c)
+.attr-list-image
+  +e(a-100-fb)
+  +e(a-fb-c, t-fb-r)
+  +e(a-fb-ac, t-fb-jc)
+  margin-bottom: 20px
+.attr-image-container
+  +e(a-50-fb, t-50-fb, d-35-fb)
+  +e(a-fb-jc)
+  +e(a-fb-ac)
+  +e(a-p-10)
+  height: 20vh
+  img
+    max-width: 100%
+    max-height: 100%
+  +tablet
+    height: 30vh
+.attr-list-image-details
+  +e(a-100-fb, t-50-fb, d-35-fb)
+  +e(a-fb-c)
+  +e(a-fb-jc)
+  h2
+    font-size: 2em
+  h3
+    font-size: 1.5em
+
+  text-align: center
+  +tablet
+    text-align: left
