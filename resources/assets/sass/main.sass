@@ -30,14 +30,11 @@ $black-font-color: #444;
   color: #777
   text-decoration: none
 %block-anchor
+  background-color: rgba( 0,0,0,0.1 )
   color: $black-font-color
-  border-top: solid 3px #333
-  border-bottom: solid 3px #333
-%anchor-hover
+%anchor
   +e(a-p-10)
   +e(styled-anchor)
-  &:hover
-    +e(block-anchor)
 %plain-anchor
   text-decoration: none
   color: $black-font-color
@@ -53,6 +50,15 @@ $black-font-color: #444;
   &:hover
     border-top: solid 1px #000
     border-bottom: solid 1px #000
+
+@keyframes bounce
+  0%
+    background-color: red
+    opacity: 100%
+
+  100%
+    background-color: green
+    opacity: 0%
 
 .home-page
   +tablet
@@ -114,7 +120,12 @@ code
   .active
     +e(block-anchor)
   a
-    +e(anchor-hover)
+    +e(anchor)
+    &:hover
+      text-shadow: 0px 0px 40px black, 0px 0px 40px black, 0 0 30px black, 0 0 30px black, 0 0 20px black, 0 0 20px black, 0 0 10px black, 0 0 5px black
+      color: rgba(200,200,200,1)
+  ul
+    +e( a-100-fb )
 
 .splash-shade
   width: 100%
@@ -142,7 +153,7 @@ code
   +e(a-100-fb)
   +e(a-fb-jc)
 .article-date
-  +e(a-90-fb, t-80-fb, d-65-fb, xl-55-fb)
+  +e(a-80-fb, t-75-fb, d-50-fb)
 
   color: white
   height: 1.3em
@@ -150,9 +161,11 @@ code
   margin-bottom: 5px
   +tablet
     margin-bottom: 10px
+  +desktop
+    width: 51%
 
 .article-body
-  +e(a-80-fb, t-75-fb, d-65-fb, xl-50-fb)
+  +e(a-80-fb, t-75-fb, d-50-fb)
   +e(legible)
   +e(a-fb-c)
   +e(font-libre-baskerville)
@@ -215,7 +228,7 @@ code
     margin-left: 5px
     margin-right: 5px
   a
-    +e(anchor-hover)
+    +e(anchor)
 .article-excerpt
   +e(legible)
   +desktop
