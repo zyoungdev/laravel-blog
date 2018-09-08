@@ -95,6 +95,8 @@ code
 
 .content
   +e(a-100-fb)
+  position: absolute
+  top: 0px
 .splash
   +e(a-100-fb)
   +e(a-fb-c, a-fb-jc)
@@ -339,7 +341,8 @@ code
 .attr-title
   +e(a-100-fb)
   +e(a-fb-jc)
-  font-size: 3em
+  font-size: 2em
+  color: $black-font-color
 .attr-list
   +e(a-100-fb)
   +e(a-fb-c)
@@ -371,3 +374,6 @@ code
   text-align: center
   +tablet
     text-align: left
+  a
+    +e(styled-anchor)
+    color: $black-font-color
