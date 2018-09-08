@@ -14,7 +14,6 @@ use App\Multimed;
 
 class AdminImagesController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -163,9 +162,9 @@ class AdminImagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, Multimed $file)
+    public function destroy(Request $request, Multimed $image)
     {
-        $file->delete();
+        $image->delete();
 
         return redirect('/admin/images');
     }
