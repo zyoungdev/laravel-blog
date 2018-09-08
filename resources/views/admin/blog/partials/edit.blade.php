@@ -19,11 +19,11 @@
 
 <div class="form-group">
   <div class="checkbox text-center">
-    {!! Form::checkbox('is_public', 0, null, ['id' => 'is_public']) !!}
+    {!! Form::checkbox('is_public', true, null, ['id' => 'is_public']) !!}
     {!! Form::label('is_public', 'Make it public') !!}
   </div>
   <div class="checkbox text-center">
-    {!! Form::checkbox('is_markdown', 1, null, ['id' => 'is_markdown']) !!}
+    {!! Form::checkbox('is_markdown', true, null, ['id' => 'is_markdown']) !!}
     {!! Form::label('is_markdown', 'Use Markdown') !!}
   </div>
 </div>
