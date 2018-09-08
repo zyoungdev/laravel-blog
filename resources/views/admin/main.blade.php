@@ -15,7 +15,7 @@
 
 <link href="/res/css/vendor/all.css" rel="stylesheet">
 <style>
-    #body { font-family: monospace; }
+  #body { font-family: monospace; }
 </style>
 @yield('css')
 

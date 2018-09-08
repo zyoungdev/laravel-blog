@@ -25,7 +25,7 @@ Route::get('/attribution', 'PublicController@showImages');
 
 /**
  * Custom Authorization
- *     Replaces Route::auth()
+ *   Replaces Route::auth()
  */
 // Auth::routes();
 // Authentication Routes...

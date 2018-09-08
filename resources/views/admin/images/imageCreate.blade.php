@@ -4,11 +4,11 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        {!! Form::model($image, ['url' => '/admin/images', 'files' => true]) !!}
-            @include('admin.images.partials.createEdit')
-        {!! Form::close() !!}
-    </div>
+  <div class="container">
+    {!! Form::model($image, ['url' => '/admin/images', 'files' => true]) !!}
+      @include('admin.images.partials.createEdit')
+    {!! Form::close() !!}
+  </div>
 @endsection
 
 @section('scripts')
