@@ -31,11 +31,15 @@ class PublicController extends Controller
 
   public function showBlog()
   {
+    $articles = Article::latest('published_at')
+                       ->published()
+                       ->isPublic()
+                       ->simplePaginate($this->paginateLimit);
+
+    $articles = $this->articleExcerpt( $articles );
+
     return view('blog.articleList')->with([
-      'articles'  => Article::latest('published_at')
-                            ->published()
-                            ->isPublic()
-                            ->simplePaginate($this->paginateLimit),
+      'articles'  => $articles,
       'tags'      => Tag::pluck('name'),
       'activeTag' => "All"
     ]);
@@ -43,11 +47,15 @@ class PublicController extends Controller
 
   public function showTag(Tag $tag)
   {
+    $articles = $tag->articles()
+                    ->orderBy('published_at', 'desc')
+                    ->simplePaginate($this->paginateLimit);
+
+    $articles = $this->articleExcerpt( $articles );
+
     return view('blog.articleList')->with([
+      'articles'  => $articles,
       'tags'      => Tag::pluck('name'),
-      'articles'  => $tag->articles()
-                         ->orderBy('published_at', 'desc')
-                         ->simplePaginate($this->paginateLimit),
       'activeTag' => $tag->name
     ]);
   }
@@ -79,4 +87,25 @@ class PublicController extends Controller
                              ->first()
     ]);
   }
+
+  private function articleExcerpt( $articles )
+  {
+    $excerpt_len = 300;
+
+    foreach ( $articles as $article )
+    {
+      if ( $article->is_markdown )
+      {
+        $markdown      = new Parsedown();
+        $article->body = html_entity_decode( strip_tags( $markdown->text( str_limit( $article->body, $excerpt_len ) ) ) );
+      }
+      else
+      {
+        $article->body = strip_tags( str_limit( $article->body, $excerpt_len ) );
+      }
+    }
+
+    return $articles;
+  }
+
 }

@@ -34,7 +34,7 @@
               @endforeach
             </ul>
             <p class="article-excerpt">
-              {{ strip_tags(str_limit($article->body, 300)) }}
+              {{ $article->body }}
             </p>
           </div>
         </li>
