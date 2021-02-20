@@ -24,6 +24,7 @@
     "vue": "^2.6.12"
   },
   "dependencies": {
+    "lato-font": "^3.0.0",
     "nice-try": "^2.1.0"
   }
 }
